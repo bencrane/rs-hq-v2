@@ -2,14 +2,17 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    tailwindcss(),
     react(),
+    tailwindcss()
   ],
+  optimizeDeps: {
+    include: ['gsap', '@gsap/react']
+  },
   server: {
     port: 3005,
-    host: true,
+    strictPort: true
   }
 })
