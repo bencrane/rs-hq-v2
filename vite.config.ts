@@ -10,9 +10,5 @@ export default defineConfig({
   ],
   optimizeDeps: {
     include: ['gsap', '@gsap/react']
-  },
-  server: {
-    port: 3005,
-    strictPort: true
   }
 })

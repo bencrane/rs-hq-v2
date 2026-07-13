@@ -2,66 +2,121 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(useGSAP);
-
 interface EntranceSequenceProps {
   onComplete: () => void;
 }
 
+gsap.registerPlugin(useGSAP);
+
 export const EntranceSequence: React.FC<EntranceSequenceProps> = ({ onComplete }) => {
   const container = useRef<HTMLDivElement>(null);
-  
+
   useGSAP(() => {
     const tl = gsap.timeline({
       onComplete: onComplete
     });
 
-    tl.to('.horizon-line', {
-      scaleX: 1,
-      duration: 1.5,
-      ease: 'power3.inOut'
-    })
-    .to('.vertical-node', {
-      scaleY: 1,
-      duration: 1,
+    // 1. Draw ethereal lines across the screen immediately
+    tl.to('.ethereal-line', {
+      strokeDashoffset: 0,
+      duration: 2.5,
       stagger: 0.1,
+      ease: 'power3.out'
+    });
+
+    // 2. Lines slowly fade away as typography emerges
+    tl.to('.ethereal-line', {
+      opacity: 0,
+      duration: 2,
+      ease: 'power1.inOut'
+    }, "-=1.5");
+
+    tl.to('.brand-text', {
+      opacity: 1,
+      duration: 2.5,
       ease: 'power2.out'
-    }, "-=0.5")
-    .to({}, { duration: 0.5 }) // Pause
-    .to('.vertical-node', {
-      scaleY: 0,
-      duration: 0.6,
-      ease: 'power3.in'
-    })
-    .to('.horizon-line', {
-      scaleX: 0,
-      duration: 0.6,
-      ease: 'power3.in'
-    }, "<")
-    .to('.background-veil', {
-      scaleY: 0,
-      transformOrigin: 'top center',
-      duration: 1,
-      ease: 'expo.inOut'
+    }, "-=2");
+
+    // 3. Hold the brand text for a shorter duration to accelerate the load
+    tl.to('.brand-text', {
+      opacity: 1,
+      duration: 0.8,
+    });
+
+    // 4. Fade out brand text
+    tl.to('.brand-text', {
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.inOut'
+    });
+
+    // 5. Fade in subtitle
+    tl.to('.brand-subtitle', {
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power2.out'
+    }, "-=0.2");
+
+    // 6. Hold subtitle
+    tl.to('.brand-subtitle', {
+      opacity: 1,
+      duration: 2,
+    });
+
+    // 7. Fade out subtitle FIRST
+    tl.to('.brand-subtitle', {
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.inOut'
+    });
+
+    // 8. THEN fade the background veil
+    tl.to('.background-veil', {
+      opacity: 0,
+      duration: 1.2,
+      ease: 'power2.inOut'
     });
 
   }, { scope: container });
 
+  // Abstract, intersecting organic curves
+  const paths = [
+    "M-100,600 C300,400 500,800 1200,200",
+    "M0,100 C400,300 700,50 1100,600",
+    "M-50,800 C400,500 800,200 1200,-50",
+    "M200,-100 C100,400 900,600 1000,900",
+    "M800,-100 C600,400 200,700 100,1000"
+  ];
+
   return (
-    <div ref={container} className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden pointer-events-none">
+    <div ref={container} className="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none">
+      {/* Base dark veil */}
       <div className="background-veil absolute inset-0 bg-[#0b1016]" />
       
-      <div className="relative w-full max-w-4xl h-64 flex items-center justify-between px-12 z-10">
-        <div className="horizon-line absolute top-1/2 left-0 w-full h-px bg-slate-500 scale-x-0 origin-center" />
-        
-        {[...Array(7)].map((_, i) => (
-          <div key={i} className="relative flex flex-col items-center">
-            <div className="w-1 h-1 bg-slate-400 rounded-full z-10" />
-            <div 
-              className={`vertical-node absolute bg-slate-700/50 w-px scale-y-0 ${i % 2 === 0 ? 'top-1/2 h-16 origin-top' : 'bottom-1/2 h-24 origin-bottom'}`} 
-            />
-          </div>
+      {/* Ethereal Vectors */}
+      <svg className="absolute inset-0 w-full h-full z-10 opacity-70" preserveAspectRatio="none" viewBox="0 0 1000 800">
+        {paths.map((d, i) => (
+          <path
+            key={i}
+            className="ethereal-line"
+            d={d}
+            fill="none"
+            stroke="rgba(255,255,255,0.15)"
+            strokeWidth="0.5"
+            strokeDasharray="2500"
+            strokeDashoffset="2500"
+          />
         ))}
+      </svg>
+
+      {/* Center Typography */}
+      <div className="absolute inset-0 flex items-center justify-center z-20">
+        <div className="brand-text absolute opacity-0 font-serif text-3xl md:text-5xl lg:text-6xl tracking-widest text-slate-100 uppercase text-center">
+          Rare Structure
+        </div>
+        <div className="brand-subtitle absolute opacity-0 font-mono text-xs md:text-sm tracking-widest text-slate-400 uppercase text-center whitespace-nowrap px-6">
+          An investment firm building and buying market-network platforms.
+        </div>
       </div>
     </div>
   );
