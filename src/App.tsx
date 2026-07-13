@@ -33,9 +33,9 @@ const ASSETS = [
   {
     id: 'RS-A05',
     insight: 'Traditional credit models fail to capture real-time telemetry, widening the gap between risk-adjusted yield and deployment.',
-    name: 'CapitalAsk',
+    name: 'Capital Expansion',
     description: 'Direct Interface for Capital Allocation',
-    details: 'Legacy underwriting models rely on trailing, low-resolution financial data. This structural delay inherently limits capital efficiency when deployed into fast-moving industrial and logistics vectors.\n\nCapitalAsk operates as the central routing engine. By ingesting real-time telemetry across our entire portfolio of operational assets, we dynamically adjust risk parameters. Capital flows instantly to nodes exhibiting the highest verifiable yield, bypassing traditional institutional latency.'
+    details: 'Legacy underwriting models rely on trailing, low-resolution financial data. This structural delay inherently limits capital efficiency when deployed into fast-moving industrial and logistics vectors.\n\nCapital Expansion operates as the central routing engine. By ingesting real-time telemetry across our entire portfolio of operational assets, we dynamically adjust risk parameters. Capital flows instantly to nodes exhibiting the highest verifiable yield, bypassing traditional institutional latency.'
   }
 ];
 
