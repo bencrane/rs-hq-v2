@@ -32,7 +32,7 @@ const ASSETS = [
   },
   {
     id: 'RS-A05',
-    insight: 'Traditional credit models fail to capture real-time telemetry, widening the gap between risk-adjusted yield and deployment.',
+    insight: 'Legacy credit models rely on trailing data, creating a structural lag between risk-adjusted yield and capital deployment.',
     name: 'Capital Expansion',
     description: 'Direct Interface for Capital Allocation',
     details: 'Legacy underwriting models rely on trailing, low-resolution financial data. This structural delay inherently limits capital efficiency when deployed into fast-moving industrial and logistics vectors.\n\nCapital Expansion operates as the central routing engine. By ingesting real-time telemetry across our entire portfolio of operational assets, we dynamically adjust risk parameters. Capital flows instantly to nodes exhibiting the highest verifiable yield, bypassing traditional institutional latency.'
@@ -116,10 +116,13 @@ const RareStructureSite = () => {
               <p className="text-slate-500 mb-8 lg:mb-12 font-mono text-[10px] tracking-widest uppercase shrink-0">
                 Market Telemetry
               </p>
-              <div className="max-w-2xl w-full my-auto">
+              <div className="max-w-2xl w-full my-auto pl-4 md:pl-6">
                 <div key={`insight-${activeIndex}`} className="animate-fade-in">
-                  <p className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-serif leading-tight text-slate-200 italic">
-                    {ASSETS[activeIndex].insight}
+                  <p 
+                    className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-serif leading-tight text-slate-200 italic"
+                    style={{ textIndent: '-0.5em' }}
+                  >
+                    "{ASSETS[activeIndex].insight}"
                   </p>
                 </div>
               </div>
