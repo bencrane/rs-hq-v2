@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { EntranceSequence } from './components/EntranceSequence';
 
 const ASSETS = [
@@ -50,7 +50,7 @@ const RareStructureSite = () => {
 
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % ASSETS.length);
-    }, 6000);
+    }, 12000);
     return () => clearInterval(interval);
   }, [activeIndex, selectedAsset]);
 
@@ -75,8 +75,8 @@ const RareStructureSite = () => {
         <div className="hidden lg:block border-r border-slate-800/60 relative"></div>
         <div className="hidden lg:block"></div>
 
-        {/* LEFT COLUMN */}
-        <div className="p-8 md:p-16 lg:p-24 flex flex-col bg-[#0b1016] relative border-b lg:border-b-0 lg:border-r border-slate-800/60 min-h-[50vh] lg:min-h-0 overflow-hidden">
+        {/* LEFT COLUMN (Detail View) */}
+        <div className="p-8 md:p-12 lg:p-16 xl:p-20 2xl:p-24 flex flex-col bg-[#0b1016] relative border-b lg:border-b-0 lg:border-r border-slate-800/60 min-h-[50vh] lg:min-h-0 overflow-y-auto">
           {selectedAsset ? (
             // DETAIL VIEW: Asset Context & Abstract BG
             <>
@@ -118,8 +118,8 @@ const RareStructureSite = () => {
               </p>
               <div className="max-w-2xl w-full my-auto">
                 <div key={`insight-${activeIndex}`} className="animate-fade-in">
-                  <p className="text-3xl md:text-5xl font-serif leading-tight text-slate-200 italic">
-                    "{ASSETS[activeIndex].insight}"
+                  <p className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-serif leading-tight text-slate-200 italic">
+                    {ASSETS[activeIndex].insight}
                   </p>
                 </div>
               </div>
@@ -141,8 +141,8 @@ const RareStructureSite = () => {
           )}
         </div>
 
-        {/* RIGHT COLUMN */}
-        <div className="p-8 md:p-16 lg:p-24 flex flex-col bg-[#0b1016] relative min-h-[50vh] lg:min-h-0">
+        {/* RIGHT COLUMN (Detail View) */}
+        <div className="p-8 md:p-12 lg:p-16 xl:p-20 2xl:p-24 flex flex-col bg-[#0b1016] relative min-h-[50vh] lg:min-h-0 overflow-y-auto">
           {selectedAsset ? (
             // DETAIL VIEW: Operational Thesis
             <>
@@ -166,7 +166,7 @@ const RareStructureSite = () => {
               <p className="text-slate-500 mb-8 lg:mb-12 font-mono text-[10px] tracking-widest uppercase shrink-0">
                 Operational Asset
               </p>
-              <div className="max-w-2xl w-full">
+              <div className="max-w-2xl w-full my-auto">
                 <div 
                   key={`asset-${activeIndex}`} 
                   onClick={() => setSelectedAsset(ASSETS[activeIndex])}
