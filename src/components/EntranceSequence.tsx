@@ -57,10 +57,10 @@ export const EntranceSequence: React.FC<EntranceSequenceProps> = ({ onComplete }
       ease: 'power2.out'
     }, "-=0.2");
 
-    // 6. Hold subtitle
+    // 6. Hold subtitle longer to allow reading of the expanded text
     tl.to('.brand-subtitle', {
       opacity: 1,
-      duration: 2,
+      duration: 5,
     });
 
     // 7. Fade out subtitle FIRST
@@ -114,8 +114,8 @@ export const EntranceSequence: React.FC<EntranceSequenceProps> = ({ onComplete }
         <div className="brand-text absolute opacity-0 font-serif text-3xl md:text-5xl lg:text-6xl tracking-widest text-slate-100 uppercase text-center">
           Rare Structure
         </div>
-        <div className="brand-subtitle absolute opacity-0 font-mono text-xs md:text-sm tracking-widest text-slate-400 uppercase text-center whitespace-nowrap px-6">
-          An investment firm building and buying market-network platforms.
+        <div className="brand-subtitle absolute opacity-0 font-mono text-xs md:text-sm tracking-widest text-slate-400 uppercase text-center max-w-4xl leading-relaxed px-6">
+          Rare Structure incubates and acquires technology businesses anchored by a structural data engineering advantage. Our properties provide foundational utility across massive, fragmented industries, allowing us to aggregate demand and route commercial volume to specialized providers who elevate the entire ecosystem.
         </div>
       </div>
     </div>
