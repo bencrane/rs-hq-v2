@@ -101,12 +101,12 @@ const RareStructureSite = () => {
               </div>
 
               <div className="max-w-2xl w-full my-auto z-10 animate-fade-in">
-                <div className="border border-slate-700/80 p-8 md:p-16 bg-[#0b1016]/80 backdrop-blur-sm relative">
+                <div className="border border-slate-700/80 p-8 lg:p-12 bg-[#0b1016]/80 backdrop-blur-sm relative">
                   <div className="font-mono text-[10px] text-slate-500 uppercase tracking-widest mb-12 flex justify-between items-center">
                     <span>{selectedAsset.id}</span>
                     <span className="w-2 h-2 bg-slate-400 rounded-full animate-pulse"></span>
                   </div>
-                  <h3 className="text-3xl md:text-4xl xl:text-5xl font-serif font-normal mb-6 text-slate-100 leading-tight">
+                  <h3 className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl font-serif font-normal mb-6 text-slate-100 leading-tight whitespace-nowrap">
                     {selectedAsset.name}
                   </h3>
                   <p className="text-slate-400 font-mono text-xs md:text-sm uppercase tracking-widest mb-12">
@@ -193,13 +193,13 @@ const RareStructureSite = () => {
                 <div 
                   key={`asset-${activeIndex}`} 
                   onClick={() => setSelectedAsset(ASSETS[activeIndex])}
-                  className="animate-fade-in border border-slate-800/60 p-8 md:p-16 bg-[#0b1016]/50 relative group transition-colors hover:border-slate-600 cursor-pointer"
+                  className="animate-fade-in border border-slate-800/60 p-8 lg:p-12 bg-[#0b1016]/50 relative group transition-colors hover:border-slate-600 cursor-pointer"
                 >
                   <div className="font-mono text-[10px] text-slate-500 uppercase tracking-widest mb-12 flex justify-between items-center">
                     <span>{ASSETS[activeIndex].id}</span>
                     <span>[ {String(activeIndex + 1).padStart(2, '0')} / {String(ASSETS.length).padStart(2, '0')} ]</span>
                   </div>
-                  <h3 className="text-3xl md:text-4xl xl:text-5xl font-serif font-normal mb-6 text-slate-100 leading-tight">
+                  <h3 className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl font-serif font-normal mb-6 text-slate-100 leading-tight whitespace-nowrap">
                     {ASSETS[activeIndex].name}
                   </h3>
                   <p className="text-slate-400 font-mono text-xs md:text-sm uppercase tracking-widest">
