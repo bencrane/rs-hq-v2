@@ -7,6 +7,7 @@ const ASSETS = [
     insight: 'Federal procurement networks remain fragmented. Localized prime and subcontractor ecosystems create visibility voids.',
     name: 'Government Contracted',
     description: 'Federal Contracting Infrastructure',
+    url: 'https://GovernmentContracted.com',
     details: 'The federal contracting ecosystem operates through an intensely fragmented network of prime contractors and localized subcontractors. This fragmentation introduces massive latency in capital allocation and operational deployment.\n\nBy aggregating and normalizing procurement telemetry, we establish a continuous feedback loop between federal capital allocation and on-the-ground execution. This structural advantage permits surgical capital deployment into high-yield, low-visibility regional nodes that traditional prime contractors cannot effectively service or underwrite.'
   },
   {
@@ -14,6 +15,7 @@ const ASSETS = [
     insight: 'Over 90% of U.S. freight routes through fleets of six trucks or fewer, generating uncaptured compliance and routing telemetry.',
     name: 'Licensed to Haul',
     description: 'Logistics & Carrier Compliance',
+    url: 'https://LicensedToHaul.com',
     details: 'The backbone of domestic logistics is sustained by micro-fleets. Despite moving the majority of physical goods, these operators lack enterprise-grade compliance and routing infrastructure, resulting in profound inefficiencies.\n\nDeploying a centralized, low-latency compliance engine directly into these localized networks captures routing telemetry at the source. This enables predictive load balancing and capital deployment against verifiable, high-frequency transit data, fundamentally altering the risk profile of logistics underwriting.'
   },
   {
@@ -21,6 +23,7 @@ const ASSETS = [
     insight: 'Underutilized heavy machinery across decentralized regional hubs limits infrastructure deployment velocity and capital efficiency.',
     name: 'Equipment Work',
     description: 'Heavy Machinery & Asset Infrastructure',
+    url: 'https://EquipmentWork.com',
     details: 'Heavy machinery deployment is historically characterized by high capital expenditure and severe localization constraints. Equipment sits idle in decentralized hubs while regional demand spikes go unmet.\n\nWe abstract the physical asset layer by treating heavy machinery as distributed computational nodes. By injecting telemetry into the deployment cycle, we dynamically route hardware to areas of maximum yield. This converts static industrial assets into fluid, high-velocity operational capital.'
   },
   {
@@ -28,6 +31,7 @@ const ASSETS = [
     insight: 'Asymmetrical labor shortages in skilled industrial trades necessitate hyper-localized, on-demand operator deployment models.',
     name: 'Active Operators',
     description: 'Labor-Matching & Deployment',
+    url: 'https://ActiveOperators.com',
     details: 'Skilled industrial labor is an inherently constrained asset, exacerbated by asymmetrical geographic demand. Traditional deployment models rely on slow-moving union halls or localized networks.\n\nOur architecture treats skilled operators as highly liquid human capital. By establishing a hyper-localized deployment matrix, we eliminate friction between industrial demand and operator availability. This ensures that complex physical infrastructure projects execute with the precision and speed of software deployment.'
   },
   {
@@ -35,6 +39,7 @@ const ASSETS = [
     insight: 'Legacy credit models rely on trailing data, creating a structural lag between risk-adjusted yield and capital deployment.',
     name: 'Capital Expansion',
     description: 'Direct Interface for Capital Allocation',
+    url: 'https://CapitalExpansion.org',
     details: 'Legacy underwriting models rely on trailing, low-resolution financial data. This structural delay inherently limits capital efficiency when deployed into fast-moving industrial and logistics vectors.\n\nCapital Expansion operates as the central routing engine. By ingesting real-time telemetry across our entire portfolio of operational assets, we dynamically adjust risk parameters. Capital flows instantly to nodes exhibiting the highest verifiable yield, bypassing traditional institutional latency.'
   }
 ];
@@ -104,9 +109,24 @@ const RareStructureSite = () => {
                   <h3 className="text-3xl md:text-4xl xl:text-5xl font-serif font-normal mb-6 text-slate-100 leading-tight">
                     {selectedAsset.name}
                   </h3>
-                  <p className="text-slate-400 font-mono text-xs md:text-sm uppercase tracking-widest">
+                  <p className="text-slate-400 font-mono text-xs md:text-sm uppercase tracking-widest mb-12">
                     {selectedAsset.description}
                   </p>
+
+                  {selectedAsset.url && (
+                    <a 
+                      href={selectedAsset.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 font-mono text-xs tracking-widest text-slate-200 uppercase hover:text-white transition-colors group border border-slate-700/50 hover:border-slate-500 py-3 px-6 rounded-sm bg-slate-900/50"
+                    >
+                      Access Platform
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-50 group-hover:opacity-100 transition-opacity -rotate-45">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </a>
+                  )}
                 </div>
               </div>
             </>
