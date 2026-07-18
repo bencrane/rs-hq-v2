@@ -120,23 +120,21 @@ export const EntranceSequence: React.FC<EntranceSequenceProps> = ({ onComplete }
           Rare Structure
         </div>
         
-        <div className="absolute flex flex-col items-center gap-12 px-6 w-full max-w-4xl">
-          <div className="brand-subtitle opacity-0 font-mono text-xs md:text-sm tracking-widest text-slate-400 uppercase text-center leading-relaxed">
-            Rare Structure incubates and acquires technology businesses anchored by a structural data engineering advantage. Our properties provide foundational utility across massive, fragmented industries, allowing us to aggregate demand and route commercial volume to specialized providers who elevate the entire ecosystem.
-          </div>
-          
-          <button 
-             onClick={handleEnter}
-             disabled={!canEnter}
-             className="enter-button opacity-0 p-4 rounded-full border border-slate-700/50 hover:bg-slate-800/50 hover:border-slate-500 transition-colors cursor-pointer disabled:cursor-default"
-             aria-label="Enter Matrix"
-           >
-             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400">
-               <line x1="12" y1="5" x2="12" y2="19"></line>
-               <polyline points="19 12 12 19 5 12"></polyline>
-             </svg>
-           </button>
+        <div className="brand-subtitle absolute opacity-0 font-mono text-xs md:text-sm tracking-widest text-slate-400 uppercase text-center leading-relaxed px-6 w-full max-w-4xl">
+          Rare Structure incubates and acquires technology businesses anchored by a structural data engineering advantage. Our properties provide foundational utility across massive, fragmented industries, allowing us to aggregate demand and route commercial volume to specialized providers who elevate the entire ecosystem.
         </div>
+        
+        <button 
+           onClick={handleEnter}
+           disabled={!canEnter}
+           className="enter-button absolute bottom-16 md:bottom-24 opacity-0 p-4 rounded-full border border-slate-700/50 hover:bg-slate-800/50 hover:border-slate-500 transition-colors cursor-pointer disabled:cursor-default"
+           aria-label="Enter Matrix"
+         >
+           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400">
+             <line x1="12" y1="5" x2="12" y2="19"></line>
+             <polyline points="19 12 12 19 5 12"></polyline>
+           </svg>
+         </button>
       </div>
     </div>
   );
